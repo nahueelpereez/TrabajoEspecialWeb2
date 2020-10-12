@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.34-dev-7, created on 2020-10-13 01:43:43
+  from 'C:\xampp\htdocs\TrabajoEspecialPair\Templates\header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.34-dev-7',
+  'unifunc' => 'content_5f84ea2f49ffa8_59814748',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '7738928fa06917e3e4b7a99069887de8904b4479' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\TrabajoEspecialPair\\Templates\\header.tpl',
+      1 => 1602546220,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5f84ea2f49ffa8_59814748 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
     <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -28,4 +51,5 @@
                         </div>
                     </nav>
                 </div>
-            </header>
+            </header><?php }
+}

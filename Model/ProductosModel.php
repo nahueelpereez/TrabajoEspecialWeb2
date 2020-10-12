@@ -15,7 +15,7 @@ class ProductosModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function get($idProducto) {
+    public function getProducto($idProducto) {
         $query = $this->db->prepare('SELECT * FROM producto WHERE id_producto = ?');
         $query->execute(array($idProducto));
 
