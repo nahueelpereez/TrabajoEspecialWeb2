@@ -1,0 +1,2 @@
+<a href="formEditarProducto/{$producto->id_producto}" class="btn  btn-secondary text-black btnEditar">EDITAR</a>
+<a href="eliminarProducto/{$producto->id_producto}" type="submit" class="btn  btn-danger text-black btnEliminar">ELIMINAR</a></li>

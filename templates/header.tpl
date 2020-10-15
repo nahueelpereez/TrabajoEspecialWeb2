@@ -18,12 +18,16 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="productos">PRODUCTOS</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="categorias">CATEGORIAS</a>
+                            </li>
+                            <li class="nav-item active">
                                 <a class="nav-link" href="sobre-nosotros">SOBRE NOSOTROS</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="login">REGISTRATE</a>
                             </li>
+                            {include 'Templates/agregar.tpl'}
                             </ul>
                         </div>
                     </nav>

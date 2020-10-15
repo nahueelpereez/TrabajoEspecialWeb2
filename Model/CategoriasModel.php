@@ -15,7 +15,7 @@ class CategoriasModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function get($idCategoria) {
+    public function getCategoria($idCategoria) {
         $query = $this->db->prepare('SELECT * FROM categoria WHERE id_categoria = ?');
         $query->execute(array($idCategoria));
 
@@ -34,10 +34,9 @@ class CategoriasModel {
         $query->execute([$idCategoria]);
     }
 
-    public function editarCategoria($nombre, $tipo, $id_categoria){
+    public function editarCategoria($nombre, $tipo, $idCategoria){
         $query = $this->db->prepare('UPDATE categoria SET nombre=?, tipo=? WHERE id_categoria=?');
-        $query->execute(array($nombre, $tipo, $id_categoria));
+        $query->execute(array($nombre, $tipo, $idCategoria));
     }
-
 
 }

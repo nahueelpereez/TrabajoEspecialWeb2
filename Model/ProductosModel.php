@@ -22,29 +22,34 @@ class ProductosModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    public function guardar($nombre, $tipo) {
-        $query = $this->db->prepare('INSERT INTO producto(nombre, marca, talle, precio) VALUES(?,?,?,?)');
-        $query->execute([$nombre, $tipo]);
-        
-        return $this->db->lastInsertId();
-    }
+    /*function guardar($nombre, $marca, $talle, $precio, $idCategoria){
+        $sentencia = $this->db->prepare("INSERT INTO producto(nombre, marca, talle, precio, categoria) VALUES ('$nombre','$marca','$talle', $precio, $idCategoria)");
+        $sentencia->execute();
+    }*/
 
+    
     function eliminar($idProducto){
         $query = $this->db->prepare('DELETE FROM producto WHERE id_producto = ?');
         $query->execute([$idProducto]);
     }
 
-    public function editarProducto($nombre, $tipo, $id_producto){
-        $query = $this->db->prepare('UPDATE producto SET nombre=?, marca=?, talle=?, precio=? WHERE id_producto=?');
-        $query->execute(array($nombre, $tipo, $id_producto));
+    public function editarProducto($nombre, $marca, $talle, $precio, $idCategoria, $idProducto){
+        $query = $this->db->prepare('UPDATE producto SET nombre=?, marca=?, talle=?, precio=?, id_categoria=? WHERE id_producto=?');
+        $query->execute(array($nombre, $marca, $talle, $precio, $idCategoria, $idProducto));
+        header("Location: " . basehref . "productos");
     }
 
     public function obtenerNombreCategoria() {
-        $query = $this->db->prepare('SELECT n.*, e.nombre as nombre_categoria FROM producto n JOIN categoria e  ON e.id_categoria = n.categoria');
+        $query = $this->db->prepare('SELECT n.*, e.nombre as nombre_categoria FROM producto n JOIN categoria e  ON e.id_categoria = n.id_categoria');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
        
-     }
-
-
+    }
+    
+    public function guardar($nombre, $marca, $talle, $precio, $idCategoria) {
+        $query = $this->db->prepare("INSERT INTO producto(nombre, marca, talle, precio, id_categoria) VALUES(?,?,?,?,?)");
+        $query->execute(array($nombre, $marca, $talle, $precio, $idCategoria));
+        //return $this->db->lastInsertId();
+    }
+    
 }

@@ -28,11 +28,6 @@ class UsuariosModel{
         $sentencia =  $this->db->prepare("UPDATE usuario SET  admin=1 WHERE id_usuario=?");
         $sentencia->execute(array($id));
     }
-    
-    public function guardarUsuario($email, $hash) {
-        $query = $this->db->prepare('INSERT INTO usuario(email, contraseña) VALUES(?,?)');
-        $query->execute([$email, $hash]);
-        
-        return $this->db->lastInsertId();
-    }
+
+
 }
