@@ -24,6 +24,10 @@
             <h5>Precio</h5>
             <input name="precio" type="number" class="form-control">
         </div>
+        <div class="form-group text-white">
+            <h5 for="file_img">Imagen</h5>
+            <input name="imagen" type="file" id="file_img" class="form-control">
+        </div>
         <h5 class="text-white">Categoria</h5>
         <select name="id_categoria">
                 {foreach from=$productos item=producto}

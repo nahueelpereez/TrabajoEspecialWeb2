@@ -2,7 +2,7 @@
 
 
 <div class="container-fluid bg-info">
-    <form action="verificar" method="POST" class="col-md-4 offset-md-4 mt-4">
+    <form action="registro" method="POST" class="col-md-4 offset-md-4 mt-4">
         <h1 class="text-white display-4">{$titulo}</h1>
 
         <div class="form-group">
@@ -21,7 +21,7 @@
         </div>
         {/if}
 
-        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <button type="submit" class="btn btn-primary">Registrarse</button>
     </form>
 
 </div>

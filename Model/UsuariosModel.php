@@ -17,6 +17,13 @@ class UsuariosModel{
 
         return $query->fetch(PDO::FETCH_OBJ);
     }
+
+    public function getIdUser($id) {
+        $query = $this->db->prepare('SELECT * FROM usuario WHERE id_usuario = ?');
+        $query->execute(array($id));
+
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
     
     public function getusuarios(){
         $query = $this->db->prepare('SELECT * FROM usuario');
@@ -24,9 +31,23 @@ class UsuariosModel{
         return $query->fetchAll(PDO::FETCH_OBJ);
 
     }
-    public function AsignarAdmin($id){
-        $sentencia =  $this->db->prepare("UPDATE usuario SET  admin=1 WHERE id_usuario=?");
-        $sentencia->execute(array($id));
+
+    public function guardarUsuario($email, $hash, $rol) {
+        $query = $this->db->prepare('INSERT INTO usuario(email, contraseña, rol) VALUES(?,?,?)');
+        $query->execute([$email, $hash, $rol]);
+        
+        return $this->db->lastInsertId();
+    }
+
+    public function AsignarAdmin($rol, $user){
+        $sentencia =  $this->db->prepare("UPDATE usuario SET  rol=? WHERE id_usuario=?");
+        $sentencia->execute(array($rol, $user));
+    }
+
+    function eliminarUsuario($usuario){
+        $sentencia = $this->db->prepare("DELETE FROM usuario WHERE id_usuario = ?");
+        $sentencia->execute(array($usuario));
+        header("Location: ".basehref."usuarios");
     }
 
 

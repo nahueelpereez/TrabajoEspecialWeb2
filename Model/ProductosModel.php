@@ -45,10 +45,16 @@ class ProductosModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
        
     }
-    
+
     public function guardar($nombre, $marca, $talle, $precio, $idCategoria) {
         $query = $this->db->prepare("INSERT INTO producto(nombre, marca, talle, precio, id_categoria) VALUES(?,?,?,?,?)");
         $query->execute(array($nombre, $marca, $talle, $precio, $idCategoria));
+        //return $this->db->lastInsertId();
+    }
+    
+    public function guardarConImagen($nombre, $marca, $talle, $precio, $idCategoria, $imagen) {
+        $query = $this->db->prepare("INSERT INTO producto(nombre, marca, talle, precio, id_categoria, imagen) VALUES(?,?,?,?,?,?)");
+        $query->execute(array($nombre, $marca, $talle, $precio, $idCategoria, $imagen));
         //return $this->db->lastInsertId();
     }
     

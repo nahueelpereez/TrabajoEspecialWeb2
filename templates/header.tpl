@@ -4,8 +4,10 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Pair</title>
+            <base href="{basehref}">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <link rel="stylesheet" href="css/estilos.css">
+            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         </head>
         <body>
             <header>
@@ -24,10 +26,17 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="sobre-nosotros">SOBRE NOSOTROS</a>
                             </li>
+                            {if $logged eq false}
                             <li class="nav-item active">
-                                <a class="nav-link" href="login">REGISTRATE</a>
+                                <a class="nav-link" href="registro">REGISTRATE</a>
                             </li>
-                            {include 'Templates/agregar.tpl'}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="login">LOGUEATE</a>
+                            </li>
+                            {/if}
+                                {if $logged}
+                                {include 'Templates/agregar.tpl'}
+                                {/if}
                             </ul>
                         </div>
                     </nav>
