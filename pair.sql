@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2020 a las 22:16:10
+-- Tiempo de generación: 04-12-2020 a las 16:45:40
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -56,17 +56,19 @@ CREATE TABLE `producto` (
   `marca` varchar(255) CHARACTER SET latin1 NOT NULL,
   `talle` varchar(4) CHARACTER SET latin1 NOT NULL,
   `precio` double NOT NULL,
-  `id_categoria` int(11) NOT NULL
+  `id_categoria` int(11) NOT NULL,
+  `imagen` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id_producto`, `nombre`, `marca`, `talle`, `precio`, `id_categoria`) VALUES
-(13, 'Remeraqwd', 'Adidass', 'Lqwd', 400098419, 5),
-(17, 'Remera', 'Nike', 'S', 7500, 3),
-(18, 'Gorra para cabezones', 'Penalty', 'L', 15000, 1);
+INSERT INTO `producto` (`id_producto`, `nombre`, `marca`, `talle`, `precio`, `id_categoria`, `imagen`) VALUES
+(13, 'Remeraqwd', 'Adidass', 'Lqwd', 400098419, 5, NULL),
+(17, 'Remera', 'Nike', 'S', 7500, 3, 'remeraNike.jpg'),
+(18, 'Gorra para cabezones', 'Penalty', 'L', 15000, 1, NULL),
+(21, 'qwdqwf', 'Adidass', 'XXXX', 68156, 1, 'Array');
 
 -- --------------------------------------------------------
 
@@ -77,15 +79,17 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `marca`, `talle`, `precio`, `id
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `email` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `contraseña` varchar(255) CHARACTER SET latin1 NOT NULL
+  `contraseña` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `rol` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `email`, `contraseña`) VALUES
-(2, 'admin@gmail.com', '$2y$10$mS/.HwF2qBaQXnZhubz1j.4YX3tg82qfE8Yxg2iWPPldfKSBlONaW');
+INSERT INTO `usuario` (`id_usuario`, `email`, `contraseña`, `rol`) VALUES
+(2, 'admin@gmail.com', '$2y$10$mS/.HwF2qBaQXnZhubz1j.4YX3tg82qfE8Yxg2iWPPldfKSBlONaW', 1),
+(4, 'nahuel@gmail.com', '$2y$10$eCx0WEHSN65.BXvZVKtn2Oa435wXSG7BfCjyfPA/uureZ4spoSPia', 0);
 
 --
 -- Índices para tablas volcadas
@@ -118,19 +122,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas

@@ -15,6 +15,7 @@
     $r->addRoute("inicio", "GET", "UsuariosController", "MostrarInicio");
     $r->addRoute("sobre-nosotros", "GET", "UsuariosController", "MostrarSobreNosotros");
     $r->addRoute("login", "GET", "UsuariosController", "MostrarLogin");
+    $r->addRoute("registro", "GET", "UsuariosController", "MostrarRegistro");
 
     //Productos
     $r->addRoute("productos", "GET", "ProductosController", "MostrarProductos");
@@ -24,6 +25,11 @@
     $r->addRoute("eliminarProducto/:ID", "GET", "ProductosController", "eliminarProducto");
     $r->addRoute("nuevoProducto", "POST", "ProductosController", "AgregarProducto");
     $r->addRoute("formEditarProducto/editProduc/:ID", "POST", "ProductosController", "editarProducto");
+
+    $r->addRoute("usuarios", "GET", "UsuariosController", "MostrarUsuarios");
+    $r->addRoute("usuariosNoAdmin", "GET", "UsuariosController", "AsignarAdmin");
+    $r->addRoute("usuariosAdmin", "GET", "UsuariosController", "QuitarAdmin");
+    $r->addRoute("eliminarUsuario", "GET", "UsuariosController", "EliminarUsuario");
 
 
     //Categorias
@@ -39,6 +45,7 @@
     $r->addRoute("login", "POST", "UsuariosController", "login");
     $r->addRoute("verificar", "POST", "UsuariosController", "verificarUsuario");
     $r->addRoute("logout", "GET", "UsuariosController", "logout");
+    $r->addRoute("registro", "POST", "UsuariosController", "NuevoUsuario");
 
     //Ruta por defecto.
     $r->setDefaultRoute("UsuariosController", "MostrarInicio");

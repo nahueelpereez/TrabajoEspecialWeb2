@@ -11,28 +11,34 @@
             $this->smarty->assign('basehref', basehref);
         }
 
-        public function mostrarCategorias($categorias) {
+        public function mostrarCategorias($categorias, $logged) {
+        $this->smarty->assign('logged', $logged);
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('Templates/categorias.tpl');
         }
 
-        public function mostrarCategoria($categoria) {
+        public function mostrarCategoria($categoria, $logged) {
+            $this->smarty->assign('logged', $logged);
+
             $this->smarty->assign('categoria', $categoria);
     
             $this->smarty->display('Templates/detallesCategoria.tpl');
         }
 
-        public function mostrarAgregarCategorias(){
+        public function mostrarAgregarCategorias($logged){
+            $this->smarty->assign('logged', $logged);
             $this->smarty->display('Templates/agregarCategoria.tpl');
         }
 
-        public function mostrarEditarCategorias($categoria){
+        public function mostrarEditarCategorias($categoria, $logged){
+            $this->smarty->assign('logged', $logged);
             $this->smarty->assign('titulo1', 'Editar Categoria');
             $this->smarty->assign('categoria', $categoria);
             $this->smarty->display('Templates/editarCategoria.tpl');
         }
 
-        public function mostrarItemCategoria($categoria, $categorias){
+        public function mostrarItemCategoria($categoria, $categorias, $logged){
+            $this->smarty->assign('logged', $logged);
             $this->smarty->assign('categoria', $categoria);
             $this->smarty->assign('categorias', $categorias);
             $this->smarty->display('Templates/formItemCategoria.tpl');
